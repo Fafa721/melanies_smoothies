@@ -1,7 +1,14 @@
-import streamlit as st
+import streamlit as 
+from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col, when_matched
 
-# session = get_active_session()
+# Create or get cached Snowpark session
+@st.cache_resource
+def get_session():
+    conn = st.connection("snowflake")
+    return conn.session()
+
+session = get_session()
 og_dataset = session.table("smoothies.public.orders")
 
 st.title("🥤Customize Your Smoothie🥤")
