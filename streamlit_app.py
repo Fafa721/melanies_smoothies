@@ -1,7 +1,7 @@
 import streamlit as st
 from snowflake.snowpark.functions import col, when_matched
 
-session = get_active_session()
+# session = get_active_session()
 og_dataset = session.table("smoothies.public.orders")
 
 st.title("🥤Customize Your Smoothie🥤")
