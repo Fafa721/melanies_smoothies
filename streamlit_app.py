@@ -1,5 +1,4 @@
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col, when_matched
 
 session = get_active_session()
@@ -35,3 +34,6 @@ else:
             st.success("Orders updated.", icon="👍")
         except Exception as e:
             st.write("Something went wrong:", e)
+
+cnx = st.connection("snowflake")
+session = cnx.session()
