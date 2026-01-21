@@ -17,7 +17,6 @@ def create_session():
 
 session = create_session()
 
-# Write directly to the app
 st.title(f"🥤Customize Your Smoothie🥤")
 st.write(
   """Choose the fruits you want in your customize Smoothie!
@@ -56,6 +55,3 @@ if ingredient_list:
         session.sql(my_insert_stmt).collect()
         
         st.success(f'Your Smoothie is ordered, {name_on_order}!', icon="✅")
-
-cnx = st.connection("snowflake")
-session = cnx.session()
